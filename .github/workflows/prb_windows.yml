@@ -24,13 +24,18 @@ jobs:
         run: ls
         
       - name: Install4
-        run: ./sail.exe init connTest
+        run: ./sail.exe conn init connTest
         
       - name: Install5
         run: ls
         
       - name: Install6
         run: cd connTest
+        
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
         
       - name: Install7
         run: npm install

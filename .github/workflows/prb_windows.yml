@@ -27,4 +27,4 @@ jobs:
         run: ls
         
       - name: Install4
-        run: sail.exe conn
+        run: ./sail.exe conn

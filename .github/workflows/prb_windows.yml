@@ -29,16 +29,15 @@ jobs:
       - name: Install5
         run: ls
         
-      - name: Install6
-        run: cd connTest
-        
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
         
       - name: Install7
+        working-directory: ./connTest
         run: npm install
         
-      - name: Install7
+      - name: Install8
+        working-directory: ./connTest
         run: npm run pack-zip

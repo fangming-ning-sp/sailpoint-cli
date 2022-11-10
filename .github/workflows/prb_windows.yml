@@ -17,27 +17,19 @@ jobs:
         with:
           go-version: 1.17
         
-      - name: Install2
-        run: go build -o sail.exe
-        
-      - name: Install3
-        run: ls
-        
-      - name: Install4
-        run: ./sail.exe conn init connTest
-        
-      - name: Install5
-        run: ls
-        
-      - name: Setup node
+      - name: Set up node
         uses: actions/setup-node@v3
         with:
           node-version: 18
         
-      - name: Install7
-        working-directory: ./connTest
-        run: npm install
+      - name: Build cli
+        run: go build -o sail.exe
         
-      - name: Install8
+      - name: Init connector project
+        run: ./sail.exe conn init connTest
+        
+      - name: Build and package connector zip file
         working-directory: ./connTest
-        run: npm run pack-zip
+        run: |
+          npm install
+          npm run pack-zip
